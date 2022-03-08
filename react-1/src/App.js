@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from './component/Button';
-
+import TaskList from './component/TaskList';
 // const myObject ={
 //   name : 'adrien'
 // };
@@ -26,22 +26,32 @@ import Button from './component/Button';
 
 
 function App() {
+  const myTaskList = [
+    {
+      title: "menage",
+      time: 90,
+      complexity: 4,
+      room: "cuisine",
+    },
+    {
+      title: "rangement",
+      time: 20,
+      complexity: 3,
+      room: "chambre",
+    },
+    {
+      title: "Réparation velo",
+      time: 120,
+      complexity: 7,
+      room: "garage",
+    }
+  ]
+  //tableau d'objet liste de tache
   return (
     <div className="App">
       <header className="App-header">
-        <Button/>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button monPremierProps={'salsifie'} ></Button>
+        <TaskList list={myTaskList} />
       </header>
     </div>
   );
