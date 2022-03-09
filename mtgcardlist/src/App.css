@@ -1,4 +1,5 @@
-.App {
+
+.test {
   text-align: center;
 }
 
@@ -15,7 +16,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +25,19 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.non-legal-badge{
+  color: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.legal-badge{
+  color: green;
+}
+
+.box-legal{
+  background-color:gainsboro;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-radius: 10px;
 }
