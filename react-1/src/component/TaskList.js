@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React , { useContext, useReducer, useState } from "react";
 import ContentTask from "./ContentTask";
 import TaskFormType from "./TaskFormType";
 
@@ -7,9 +7,12 @@ const TaskList = (props) => {
 
     const handleSubmit = (event, content) => {
         event.preventDefault();
-        setList([...list, content]);
+        setList([...list, {...content, id: list.length + 1}]);
     }
 
+    const handleRemove = (content) => {
+        setList(list.filter(f => f.id !== content.id ))
+    }
         return(
         <div>
             <table>
@@ -19,14 +22,15 @@ const TaskList = (props) => {
                             <th colSpan={3}>Durée</th>
                             <th colSpan={3}>complexité</th>
                             <th colSpan={3}>Piéce</th>
+                            <th colSpan={3}>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        { list.map((x , index) => <ContentTask content={x} key={index}/>)}
+                        { list.map((x , index) => <ContentTask content={x} key={index} removeContent={handleRemove}/>)}
                     </tbody>
             </table>
             -------------------------------------------------------
-            <TaskFormType onSubmit={handleSubmit}/>
+            <TaskFormType onSubmit={handleSubmit} />
         </div>
     )
 }

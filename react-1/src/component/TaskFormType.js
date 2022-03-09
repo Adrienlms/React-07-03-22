@@ -1,11 +1,9 @@
 import React , { useState } from "react";
 
 const TaskFormType = (props) => {
-    const [ content ,  setState] = useState({title: "", time: "", complexity: "", room: ""});
-
+    const [ content ,  setState] = useState({id: 0 ,title: "", time: "", complexity: "", room: ""});
     const handleChange = (event) => {
         setState({ ...content, [event.target.name] : event.target.value });
-        
     }
 
         return(
@@ -29,12 +27,12 @@ const TaskFormType = (props) => {
                         </td>
                         <td colSpan={3}>
                             <label>
-                                <input name="time" type="text" value={content.time} onChange={event => handleChange(event)} required/>                    
+                                <input name="time" type="number" value={content.time} onChange={event => handleChange(event)} required/>                    
                             </label>    
                         </td>
                         <td colSpan={3}>
                             <label>
-                                <input name="complexity" type="text" value={content.complexity} onChange={event => handleChange(event)} required/>                    
+                                <input name="complexity" type="number" value={content.complexity} onChange={event => handleChange(event)} required/>                    
                             </label>
                         </td>
                         <td colSpan={3}>
