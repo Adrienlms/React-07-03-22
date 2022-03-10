@@ -28,6 +28,7 @@
 }
 .card-size{
   max-width: 400px;
+  border-radius: 15px;
 }
 
 .non-legal-badge{
@@ -71,4 +72,8 @@
 }
 .card-list-col{
   padding-top: 20px;
+}
+
+.card-img{
+  border-radius: 30px;
 }

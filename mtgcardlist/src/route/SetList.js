@@ -3,9 +3,10 @@ import '../App.css';
 import NavBar from '../component/NavBar';
 import axios from 'axios';
 import { Container , Row , Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 function SetList() {
 
-    const [ dataList, setDataList] = useState([]);
+    const [ dataList, setDataList] = useState([]); // etats local dans le composant
     const [ dataCardList, setDataCardList] = useState(null);
     
     useEffect( () => {
@@ -20,11 +21,9 @@ function SetList() {
     }
 
     const handleClick = async (event) => {
-        console.log(event.target.value)
         const result = await axios(
             event.target.value,
           );
-          console.log(result.data.data)
         setDataCardList(result.data.data)
         
     }
@@ -48,7 +47,7 @@ function SetList() {
         <Row className='card-list-row'>
             {dataCardList ? dataCardList.map((item, index) => (
                 <Col md={3}  className='card-list-col'>
-                    {item.image_uris ? <img src={item.image_uris.png} className={"card-size"}></img> : null}
+                    {item.image_uris ?  <Link to={`/card/${item.id}`} ><img  src={item.image_uris.normal} className={"card-size"}></img></Link> : item.card_faces ? <Link to={`/card/${item.id}`} ><img src={item.card_faces[0].image_uris.normal} className={"card-size"}></img></Link> : null }
                 </Col>
             )) : ""}
         </Row>

@@ -17,7 +17,7 @@ const OneCard = (props) => {
             <Row>
                 <Col md={4}></Col>
                 <Col md={4}>
-                    {props.card.image_uris ? <img src={props.card.image_uris.normal} className={"card-size"}></img> : ""}
+                    {props.card.image_uris ? <img src={props.card.image_uris.normal} className={"card-size"}></img> :  props.card.card_faces ? <img src={props.card.card_faces[0].image_uris.normal} className={"card-size"}></img> : null}
                 </Col>
                 <Col md={4}>
                     <div className="box-legal">

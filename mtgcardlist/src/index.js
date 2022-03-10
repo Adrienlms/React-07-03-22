@@ -5,12 +5,14 @@ import App from './App';
 import SetList from './route/SetList';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter , Route , Routes } from 'react-router-dom';
+import DisplayOneCard from './route/DisplayOneCard';
 
 ReactDOM.render(
   <BrowserRouter>
   <Routes>
     <Route path="/" element={<App/>}/>
     <Route path="/sets" element={<SetList/>}/>
+    <Route path="/card/:id" element={<DisplayOneCard/>}/>
   </Routes>
 </BrowserRouter>,
   document.getElementById('root')
