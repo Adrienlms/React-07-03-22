@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import SetList from './route/SetList';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter , Route , Routes } from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<App/>}/>
+    <Route path="/sets" element={<SetList/>}/>
+  </Routes>
+</BrowserRouter>,
   document.getElementById('root')
 );
 
